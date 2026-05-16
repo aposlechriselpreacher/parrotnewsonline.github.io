@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category | Parrot News Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="bg-blue-600 p-2 rounded-lg">
+                        <i data-lucide="bird" class="text-white w-6 h-6"></i>
+                    </div>
+                    <span class="text-2xl font-bold tracking-tight text-gray-900">PARROT<span class="text-blue-600">NEWS</span></span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 transition">Home</a>
+                    <a href="category.html?cat=politics" id="nav-politics" class="font-medium text-gray-600 hover:text-blue-600 transition">Politics</a>
+                    <a href="category.html?cat=sports" id="nav-sports" class="font-medium text-gray-600 hover:text-blue-600 transition">Sports</a>
+                    <a href="category.html?cat=entertainment" id="nav-entertainment" class="font-medium text-gray-600 hover:text-blue-600 transition">Entertainment</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-500 hover:text-blue-600 transition">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-500">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 py-4 space-y-4">
+            <a href="index.html" class="block font-medium text-gray-600">Home</a>
+            <a href="category.html?cat=politics" class="block font-medium text-gray-600">Politics</a>
+            <a href="category.html?cat=sports" class="block font-medium text-gray-600">Sports</a>
+            <a href="category.html?cat=entertainment" class="block font-medium text-gray-600">Entertainment</a>
+        </div>
+    </header>
+
+    <!-- Category Header -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-12">
+            <nav class="flex mb-4 text-sm text-gray-500" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2">
+                    <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                    <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+                    <li class="font-medium text-gray-900 capitalize" id="breadcrumb-category">Category</li>
+                </ol>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-bold capitalize" id="category-title">Category Name</h1>
+            <p class="mt-4 text-gray-600 max-w-2xl" id="category-description">Latest updates, in-depth analysis, and breaking news from the world of category.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <!-- Article List -->
+            <div class="lg:col-span-2 space-y-12" id="article-list">
+                <!-- Articles will be injected here by JS -->
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="space-y-8">
+                <!-- Sidebar Ad -->
+                <div class="w-full aspect-square bg-gray-100 border border-dashed border-gray-300 rounded-lg p-4 flex items-center justify-center text-gray-400 text-sm italic">
+                    <div class="text-center">
+                        <p>Advertisement</p>
+                        <p class="font-mono">300 x 250</p>
+                    </div>
+                </div>
+
+                <!-- Trending in Category -->
+                <div class="bg-white rounded-xl border p-6">
+                    <h2 class="text-xl font-bold mb-6 flex items-center">
+                        <i data-lucide="zap" class="w-5 h-5 mr-2 text-yellow-500"></i> Trending in <span class="capitalize ml-1" id="trending-cat-name">Category</span>
+                    </h2>
+                    <div class="space-y-6" id="trending-list">
+                        <!-- Trending items injected here -->
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Radio Player Bar (Same as index) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl z-[60] py-4 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                    <i data-lucide="radio" class="text-white w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm">Parrot Live Radio</h4>
+                    <p class="text-xs text-gray-500 flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-2 animate-ping"></span> Live: Morning Talk Show</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-8">
+                <button class="text-gray-400 hover:text-gray-600"><i data-lucide="skip-back" class="w-5 h-5"></i></button>
+                <button class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition">
+                    <i data-lucide="play" class="w-6 h-6 fill-current"></i>
+                </button>
+                <button class="text-gray-400 hover:text-gray-600"><i data-lucide="skip-forward" class="w-5 h-5"></i></button>
+            </div>
+
+            <div class="flex items-center space-x-4 w-full md:w-64">
+                <i data-lucide="volume-2" class="w-5 h-5 text-gray-400"></i>
+                <div class="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="w-2/3 h-full bg-blue-600"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Same as index) -->
+    <footer class="bg-white border-t pt-16 pb-32 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 mb-6">
+                        <div class="bg-blue-600 p-2 rounded-lg">
+                            <i data-lucide="bird" class="text-white w-6 h-6"></i>
+                        </div>
+                        <span class="text-2xl font-bold tracking-tight text-gray-900">PARROT<span class="text-blue-600">NEWS</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm leading-relaxed">Delivering accurate, timely, and unbiased news from around the world. Your trusted source for politics, sports, and entertainment.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Categories</h4>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li><a href="category.html?cat=politics" class="hover:text-blue-600 transition">Politics</a></li>
+                        <li><a href="category.html?cat=sports" class="hover:text-blue-600 transition">Sports</a></li>
+                        <li><a href="category.html?cat=entertainment" class="hover:text-blue-600 transition">Entertainment</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition">Technology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-blue-600 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition">Terms of Service</a></li>
+                        <li><a href="admin.html" class="hover:text-blue-600 transition flex items-center"><i data-lucide="lock" class="w-3 h-3 mr-2"></i> Admin Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-400 hover:text-white transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-pink-600 hover:text-white transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t pt-8 text-center text-gray-400 text-xs">
+                &copy; 2026 Parrot News Online. All rights reserved. Designed with precision.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Radio Player Interactivity
+        const playBtn = document.querySelector('.fixed.bottom-0 button.bg-blue-600');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = playBtn.querySelector('i');
+            if (isPlaying) {
+                icon.setAttribute('data-lucide', 'pause');
+            } else {
+                icon.setAttribute('data-lucide', 'play');
+            }
+            lucide.createIcons();
+            playBtn.classList.toggle('bg-blue-700');
+            playBtn.classList.toggle('scale-95');
+        });
+
+        // Category Logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const cat = urlParams.get('cat') || 'politics';
+        
+        // Update Page Content based on Category
+        document.getElementById('category-title').textContent = cat;
+        document.getElementById('breadcrumb-category').textContent = cat;
+        document.getElementById('trending-cat-name').textContent = cat;
+        
+        // Highlight active nav
+        const activeNav = document.getElementById(`nav-${cat}`);
+        if (activeNav) {
+            activeNav.classList.remove('text-gray-600');
+            activeNav.classList.add('text-blue-600', 'font-bold');
+        }
+
+        // Mock Data for Category
+        const mockArticles = {
+            politics: [
+                { title: "New Legislation Aims to Reform Digital Privacy Laws", excerpt: "Lawmakers introduced a bipartisan bill today that seeks to give users more control over their personal data online...", date: "May 6, 2026", image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=600" },
+                { title: "Diplomatic Relations Strengthened After High-Level Summit", excerpt: "The two nations agreed to cooperate on several key issues including trade and security during the three-day summit...", date: "May 5, 2026", image: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&q=80&w=600" },
+                { title: "City Council Approves New Green Space Initiative", excerpt: "The project will transform several abandoned industrial sites into public parks and community gardens over the next five years...", date: "May 4, 2026", image: "https://images.unsplash.com/photo-1575517111478-7f6afd0973db?auto=format&fit=crop&q=80&w=600" }
+            ],
+            sports: [
+                { title: "Championship Underdogs Pull Off Stunning Victory", excerpt: "In one of the biggest upsets in tournament history, the last-seeded team defeated the reigning champions in a nail-biting final...", date: "May 6, 2026", image: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=600" },
+                { title: "Star Athlete Announces Retirement After Record-Breaking Career", excerpt: "The 35-year-old veteran said it was the right time to step away from the sport after winning three world titles...", date: "May 5, 2026", image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=600" },
+                { title: "New Training Facility Set to Revolutionize Youth Sports", excerpt: "The state-of-the-art complex will provide young athletes with access to professional-grade equipment and coaching...", date: "May 4, 2026", image: "https://images.unsplash.com/photo-1461896704190-3213c9ad81ae?auto=format&fit=crop&q=80&w=600" }
+            ],
+            entertainment: [
+                { title: "Breakout Indie Film Sweeps Annual Awards Ceremony", excerpt: "The low-budget drama surprised critics and audiences alike, taking home five major awards including Best Picture...", date: "May 6, 2026", image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" },
+                { title: "Music Legend Announces World Tour After 10-Year Hiatus", excerpt: "Fans across the globe are scrambling for tickets as the iconic singer returns to the stage for a limited run of shows...", date: "May 5, 2026", image: "https://images.unsplash.com/photo-1514525253361-bee8a48790c3?auto=format&fit=crop&q=80&w=600" },
+                { title: "Streaming Service Renews Hit Sci-Fi Series for Final Season", excerpt: "The announcement comes after months of speculation about the future of the critically acclaimed show...", date: "May 4, 2026", image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&q=80&w=600" }
+            ]
+        };
+
+        const listContainer = document.getElementById('article-list');
+        const articles = mockArticles[cat] || mockArticles.politics;
+
+        articles.forEach(article => {
+            const articleEl = document.createElement('article');
+            articleEl.className = 'flex flex-col md:flex-row gap-8 group cursor-pointer border-b pb-12 last:border-0';
+            articleEl.innerHTML = `
+                <div class="md:w-1/3 rounded-xl overflow-hidden h-48">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-center text-xs text-gray-500 mb-2 space-x-4">
+                        <span class="flex items-center"><i data-lucide="calendar" class="w-3 h-3 mr-1"></i> ${article.date}</span>
+                        <span class="flex items-center"><i data-lucide="user" class="w-3 h-3 mr-1"></i> By John Doe</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition">${article.title}</h2>
+                    <p class="text-gray-600 line-clamp-3 mb-4">${article.excerpt}</p>
+                    <button class="text-blue-600 font-semibold flex items-center hover:underline">Read Full Story <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></button>
+                </div>
+            `;
+            listContainer.appendChild(articleEl);
+        });
+
+        // Re-run lucide for injected icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
